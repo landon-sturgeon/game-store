@@ -1,12 +1,12 @@
 import React, { Component } from "react";
-import "./CardList.styles.css";
+import { Container, CardSide, Content, CardForm } from "./CardList.styles";
 
 class CardList extends Component {
   render() {
     return (
-      <div class="container">
-        <div class="front side">
-          <div class="content">
+      <Container>
+        <CardSide front>
+          <Content>
             <h1>Hakkam Abdullah</h1>
             <p>
               I am a graphic designer and art director. I am as well specialised
@@ -14,12 +14,12 @@ class CardList extends Component {
               Throughout my career, I have worked with companies of all shapes
               and sizes that enriched my experience
             </p>
-          </div>
-        </div>
-        <div class="back side">
-          <div class="content">
+          </Content>
+        </CardSide>
+        <CardSide>
+          <Content>
             <h1>Contact Me</h1>
-            <form>
+            <CardForm>
               <label>Your Name :</label>
               <input type="text" placeholder="Omar Khattab" />
               <label>Your E-mail :</label>
@@ -27,10 +27,10 @@ class CardList extends Component {
               <label>Your message :</label>
               <textarea placeholder="The Subject"></textarea>
               <input type="submit" value="Done" />
-            </form>
-          </div>
-        </div>
-      </div>
+            </CardForm>
+          </Content>
+        </CardSide>
+      </Container>
     );
   }
 }

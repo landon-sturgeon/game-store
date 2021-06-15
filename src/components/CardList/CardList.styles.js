@@ -1,0 +1,110 @@
+import styled, { css } from "styled-components";
+
+export const Container = styled.div`
+  min-width: 700px;
+  min-height: 350px;
+  border-radius: 20px;
+  position: relative;
+  -webkit-transition: 1s ease-in-out;
+  transition: 1s ease-in-out;
+  transform-style: preserve-3d;
+  &:hover {
+    -webkit-transform: rotateY(180deg);
+    transform: rotateY(180deg);
+  }
+`;
+
+export const CardSide = styled.div`
+  position: absolute;
+  text-align: center;
+  width: 100%;
+  height: 100%;
+  padding: 20px 50px;
+  color: #fff;
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+  border-radius: 20px;
+  ${(props) => {
+    if (props.front === true) {
+      return css`
+        z-index: 2;
+        background-size: 100vh;
+        background-size: cover;
+        background-image: url(https://userscontent2.emaze.com/images/f9538183-0ff9-478f-b964-c8ab90421e3b/3d28e192fda5c17250f96a2779c84475.jpg);
+      `;
+    } else {
+      return css`
+        background-color: #333;
+        transform: rotateY(180deg);
+        z-index: 0;
+        padding-top: 10px;
+        background-image: url(https://userscontent2.emaze.com/images/f9538183-0ff9-478f-b964-c8ab90421e3b/3d28e192fda5c17250f96a2779c84475.jpg);
+        h1 {
+          margin: 0;
+        }
+      `;
+    }
+  }}
+`;
+
+export const Content = styled.div`
+  transform: translateZ(70px) scale(0.8);
+  line-height: 1.5em;
+
+  h1 {
+    position: relative;
+  }
+  h1:before {
+    content: "";
+    position: absolute;
+    bottom: -20px;
+    height: 3px;
+    background-color: #3e3;
+    width: 70px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  p {
+    margin-top: 50px;
+    line-height: 2em;
+  }
+`;
+
+export const CardForm = styled.form`
+  text-align: left;
+
+  label,
+  input {
+    display: block;
+  }
+
+  input,
+  textarea {
+    background: transparent;
+    border: 0;
+    border-bottom: 2px solid #444;
+    padding: 5px;
+    width: 100%;
+    color: #fff;
+  }
+
+  label {
+    margin: 15px 0;
+  }
+
+  input[type="submit"] {
+    display: block;
+    width: auto;
+    margin: 10px auto;
+    padding: 5px 10px;
+    border: 3px solid #555;
+    border-radius: 4px;
+    color: #fff;
+    cursor: pointer;
+
+    &:hover {
+      background-color: #333;
+    }
+  }
+`;
