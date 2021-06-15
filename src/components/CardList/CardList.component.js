@@ -7,7 +7,7 @@ class CardList extends Component {
       <Container>
         <CardSide front>
           <Content>
-            <h1>Hakkam Abdullah</h1>
+            <h1>Landon Sturgeon</h1>
             <p>
               I am a graphic designer and art director. I am as well specialised
               in front end web design, user experience and creating identities.
@@ -21,7 +21,7 @@ class CardList extends Component {
             <h1>Contact Me</h1>
             <CardForm>
               <label>Your Name :</label>
-              <input type="text" placeholder="Omar Khattab" />
+              <input type="text" placeholder="Enter Name Here" />
               <label>Your E-mail :</label>
               <input type="text" placeholder="Example@mail.com" />
               <label>Your message :</label>
