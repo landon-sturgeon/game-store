@@ -4,7 +4,6 @@ import {
   NavBarContainer,
   NavIconContainer,
   NavMenuUl,
-  styledIcon,
   StyledListItem,
   StyledNav,
   StyledNavLink,

@@ -2,6 +2,7 @@ import styled, { css } from "styled-components";
 import { NavLink } from "react-router-dom";
 
 export const StyledNav = styled.nav`
+  background-color: var(--color-background-accent);
   width: 100vw;
   height: 80px;
   display: flex;
@@ -31,19 +32,13 @@ export const mainContainer = css`
 `;
 
 export const StyledNavLogo = styled(NavLink)`
-  color: #f5b921;
+  color: var(--color-text-standard);
   align-items: center;
   margin-left: 20px;
   cursor: pointer;
   text-decoration: none;
   font-size: 2rem;
   flex-grow: 1;
-`;
-
-export const styledIcon = css`
-  height: 30px;
-  width: 30px;
-  color: white;
 `;
 
 export const NavMenuUl = styled.ul`
@@ -56,7 +51,7 @@ export const NavMenuUl = styled.ul`
     display: flex;
     flex-direction: column;
     width: 100%;
-    border-top: 1pxsolid #fff;
+    border-top: 1px solid var(--color-text-standard);
     position: absolute;
     top: 80px;
     left: -110%;
@@ -66,7 +61,7 @@ export const NavMenuUl = styled.ul`
     ${(props) =>
       props.active &&
       css`
-        background: #1f5156;
+        background: var(--color-background-accent);
         left: 0px;
         opacity: 1;
         transition: all 0.5s ease;
@@ -76,7 +71,7 @@ export const NavMenuUl = styled.ul`
 `;
 
 export const StyledNavLink = styled(NavLink)`
-  color: #fff;
+  color: var(--color-text-standard);
   text-decoration: none;
   padding: 0.5rem 1rem;
   height: 100%;
@@ -107,17 +102,17 @@ export const StyledListItem = styled.li`
 
   &:hover:after {
     width: 100%;
-    background: #ffdd40;
+    background: var(--color-text-accent);
   }
 
   .active {
-    color: #ffdd40;
-    border: 1px solid #ffdd40;
+    color: var(--color-text-accent);
+    border: 1px solid var(--color-text-accent);
   }
 
   @media (max-width: 960px) {
     .active {
-      color: #ffdd40;
+      color: var(--color-text-accent);
       border: none;
     }
   }
@@ -134,6 +129,6 @@ export const NavIconContainer = styled.div`
     transform: translate(-100%, 60%);
     font-size: 1.8rem;
     cursor: pointer;
-    color: #ffdd40;
+    color: var(--color-text-standard);
   }
 `;

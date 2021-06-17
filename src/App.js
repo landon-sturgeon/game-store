@@ -3,6 +3,7 @@ import CardList from "./components/CardList/CardList.component";
 import NavBar from "./components/NavBar/NavBar.component";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import React from "react";
+import { GlobalStyles } from "./global.styles";
 
 const Home = () => {
   return (
@@ -39,6 +40,7 @@ const Contact = () => {
 function App() {
   return (
     <React.Fragment>
+      <GlobalStyles />
       <BrowserRouter>
         <NavBar />
         <div>

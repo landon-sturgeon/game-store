@@ -21,7 +21,7 @@ export const CardSide = styled.div`
   width: 100%;
   height: 100%;
   padding: 20px 50px;
-  color: #fff;
+  color: var(--color-text-standard);
   transform-style: preserve-3d;
   backface-visibility: hidden;
   border-radius: 20px;
@@ -35,7 +35,7 @@ export const CardSide = styled.div`
       `;
     } else {
       return css`
-        background-color: #333;
+        background-color: var(--color-background-primary);
         transform: rotateY(180deg);
         z-index: 0;
         padding-top: 10px;
@@ -60,7 +60,7 @@ export const Content = styled.div`
     position: absolute;
     bottom: -20px;
     height: 3px;
-    background-color: #3e3;
+    background-color: var(--color-text-accent);
     width: 70px;
     left: 50%;
     transform: translateX(-50%);
@@ -84,10 +84,10 @@ export const CardForm = styled.form`
   textarea {
     background: transparent;
     border: 0;
-    border-bottom: 2px solid #444;
+    border-bottom: 2px solid var(--color-smoke);
     padding: 5px;
     width: 100%;
-    color: #fff;
+    color: var(--color-text-standard);
   }
 
   label {
@@ -99,13 +99,13 @@ export const CardForm = styled.form`
     width: auto;
     margin: 10px auto;
     padding: 5px 10px;
-    border: 3px solid #555;
+    border: 3px solid var(--color-button-border-standard);
     border-radius: 4px;
-    color: #fff;
+    color: var(--color-text-standard);
     cursor: pointer;
 
     &:hover {
-      background-color: #333;
+      background-color: var(--color-background-primary);
     }
   }
 `;
