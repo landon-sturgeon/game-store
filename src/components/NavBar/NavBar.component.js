@@ -41,7 +41,6 @@ function NavBar() {
 
             <StyledListItem>
               <StyledNavLink
-                exact
                 to="/about"
                 activeClassName="active"
                 onClick={click ? handleClick : null}
@@ -51,7 +50,6 @@ function NavBar() {
             </StyledListItem>
             <StyledListItem>
               <StyledNavLink
-                exact
                 to="/blog"
                 activeClassName="active"
                 onClick={click ? handleClick : null}
@@ -61,12 +59,13 @@ function NavBar() {
             </StyledListItem>
             <StyledListItem>
               <StyledNavLink
-                exact
-                to="/contact"
                 activeClassName="active"
                 onClick={click ? handleClick : null}
+                href="https://github.com/landon-sturgeon/game-store"
+                target="_blank"
+                rel="noopener noreferrer"
               >
-                Contact
+                Github
               </StyledNavLink>
             </StyledListItem>
           </NavMenuUl>

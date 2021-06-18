@@ -70,7 +70,7 @@ export const NavMenuUl = styled.ul`
   }
 `;
 
-export const StyledNavLink = styled(NavLink)`
+export const StyledNavLink = styled.a`
   color: var(--color-text-standard);
   text-decoration: none;
   padding: 0.5rem 1rem;
