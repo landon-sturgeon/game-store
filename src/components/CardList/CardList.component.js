@@ -3,7 +3,11 @@ import { CardListContainer } from "./CardList.styles";
 import Card from "../Card/Card.component";
 
 const cards = [
-  { title: "Test Card 1", description: "this is a description of card 1" },
+  {
+    title: "Test Card 1",
+    description:
+      "this is a description of card 1, this is a description of card 1, this is a description of card 1, this is a description of card 1, this is a description of card 1, this is a description of card 1, this is a description of card 1,",
+  },
   { title: "Test Card 2", description: "this is a description of card 2" },
   { title: "Test Card 3", description: "this is a description of card 3" },
   { title: "Test Card 4", description: "this is a description of card 4" },

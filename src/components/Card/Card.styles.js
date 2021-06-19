@@ -6,8 +6,8 @@ export const Container = styled.div`
   margin: 20px;
   border-radius: 20px;
   position: relative;
-  -webkit-transition: 1s ease-in-out;
-  transition: 1s ease-in-out;
+  -webkit-transition: 1.5s ease-in-out;
+  transition: 1.5s ease-in-out;
   transform-style: preserve-3d;
   &:hover {
     -webkit-transform: rotateY(180deg);
@@ -20,7 +20,6 @@ export const CardSide = styled.div`
   text-align: center;
   width: 100%;
   height: 100%;
-  padding: 20px 50px;
   color: var(--color-text-standard);
   transform-style: preserve-3d;
   backface-visibility: hidden;
@@ -29,7 +28,6 @@ export const CardSide = styled.div`
     if (props.front === true) {
       return css`
         z-index: 2;
-        background-size: 100vh;
         background-size: cover;
         background-image: url(https://userscontent2.emaze.com/images/f9538183-0ff9-478f-b964-c8ab90421e3b/3d28e192fda5c17250f96a2779c84475.jpg);
       `;
