@@ -70,7 +70,20 @@ export const NavMenuUl = styled.ul`
   }
 `;
 
-export const StyledNavLink = styled.a`
+export const StyledNavLink = styled(NavLink)`
+  color: var(--color-text-standard);
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  height: 100%;
+  border-bottom: 3px solid transparent;
+
+  @media (max-width: 960px) {
+    padding: 1.5rem;
+    width: 100%;
+  }
+`;
+
+export const StyledA = styled.a`
   color: var(--color-text-standard);
   text-decoration: none;
   padding: 0.5rem 1rem;
@@ -90,6 +103,7 @@ export const FontAwesomeCode = css`
 export const StyledListItem = styled.li`
   line-height: 40px;
   margin-right: 1rem;
+  cursor: pointer;
 
   &::after {
     content: "";
@@ -103,11 +117,6 @@ export const StyledListItem = styled.li`
   &:hover:after {
     width: 100%;
     background: var(--color-text-accent);
-  }
-
-  .active {
-    color: var(--color-text-accent);
-    border: 1px solid var(--color-text-accent);
   }
 
   @media (max-width: 960px) {
