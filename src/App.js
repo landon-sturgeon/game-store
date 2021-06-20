@@ -3,7 +3,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import React from "react";
 import { GlobalStyles } from "./global.styles";
 import Layout from "./components/Layout/Layout.component";
-import Hangman from "./pages/Hangman";
+import Hangman from "./pages/Hangman/Hangman.component";
 import LandingPage from "./pages/LandingPage";
 
 function App() {
