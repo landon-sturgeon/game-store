@@ -8,5 +8,7 @@ export const GlobalStyles = createGlobalStyle`
     --color-background-accent: #212529;
     --color-background-primary: #333;
     --color-button-border-standard: #555;
+
+    --pixel-navbar-height: 80px;
   }
 `;
