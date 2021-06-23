@@ -121,7 +121,7 @@ export const StyledListItem = styled.li`
 
   @media (max-width: 960px) {
     .active {
-      color: var(--color-text-accent);
+      color: var(--color-text-standard);
       border: none;
     }
   }

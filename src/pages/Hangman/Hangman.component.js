@@ -54,14 +54,22 @@ class Hangman extends Component {
   }
 
   render() {
+    let gameOver = this.state.numberWrong >= this.props.maxWrong;
+    const altText = `${this.state.numberWrong}/${this.props.maxWrong} guesses`;
     return (
       <HangmanAppContainer>
         <HangmanComponentsContainer>
           <h1>Hangman</h1>
-          <img src={this.props.images[this.state.numberWrong]} />
+          <img src={this.props.images[this.state.numberWrong]} alt={altText} />
           <p>Number Wrong Guesses: {this.state.numberWrong} out of 6</p>
-          <HangmanWord>{this.guessedWord()}</HangmanWord>
-          <HangmanButtons>{this.generateButtons()}</HangmanButtons>
+          <HangmanWord>
+            {!gameOver ? this.guessedWord() : this.state.answer}
+          </HangmanWord>
+          <HangmanButtons>
+            {!gameOver
+              ? this.generateButtons()
+              : `You lose. The answer was ${this.state.answer}`}
+          </HangmanButtons>
         </HangmanComponentsContainer>
       </HangmanAppContainer>
     );
