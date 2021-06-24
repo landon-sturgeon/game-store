@@ -3,7 +3,6 @@ import styled from "styled-components";
 export const HangmanAppContainer = styled.div`
   text-align: center;
   font-family: "Coming Soon", cursive;
-  height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -55,6 +54,25 @@ export const HangmanComponentsContainer = styled.div`
       box-shadow: 0 6px #9e9e9e;
     }
   }
+
+  & .reset-button {
+    width: auto;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    background: #e68900;
+    box-shadow: 0 6px #e68900;
+    
+    span {
+      padding 10px;
+    }
+
+    &:hover {
+      background: #cc7a00;
+    }
+  }
 `;
 
 export const HangmanWord = styled.p`
@@ -68,4 +86,5 @@ export const HangmanButtons = styled.p`
   display: inline-block;
   width: 250px;
   margin-top: 0;
+  margin-botton: 20px;
 `;
