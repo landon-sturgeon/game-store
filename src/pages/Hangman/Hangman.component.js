@@ -6,6 +6,7 @@ import img3 from "../../assets/hangman/3.jpg";
 import img4 from "../../assets/hangman/4.jpg";
 import img5 from "../../assets/hangman/5.jpg";
 import img6 from "../../assets/hangman/6.jpg";
+import { randomWord } from "../../assets/hangman/words";
 
 import {
   HangmanAppContainer,
@@ -22,7 +23,7 @@ class Hangman extends Component {
 
   constructor(props) {
     super(props);
-    this.state = { numberWrong: 0, guessed: new Set(), answer: "apple" };
+    this.state = { numberWrong: 0, guessed: new Set(), answer: randomWord() };
     this.handleGuess = this.handleGuess.bind(this);
   }
 
