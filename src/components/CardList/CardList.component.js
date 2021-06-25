@@ -11,10 +11,10 @@ const cards = [
     backgroundImg: hangmanBackground,
   },
   {
-    title: "Test Card 2",
+    title: "Pokedex",
     description: "this is a description of card 2",
-    route: "/hangman",
-    backgroundImg: { hangmanBackground },
+    route: "/pokedex",
+    backgroundImg: hangmanBackground,
   },
   {
     title: "Test Card 3",

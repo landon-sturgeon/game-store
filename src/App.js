@@ -5,6 +5,7 @@ import { GlobalStyles } from "./global.styles";
 import Layout from "./components/Layout/Layout.component";
 import Hangman from "./pages/Hangman/Hangman.component";
 import LandingPage from "./pages/LandingPage";
+import Pokedex from "./pages/Pokedex/Pokedex.component";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <Layout>
           <Routes>
             <Route path="/hangman" element={<Hangman />} />
+            <Route path="/pokedex" element={<Pokedex />} />
             <Route exact path="/" element={<LandingPage />} />
           </Routes>
         </Layout>
