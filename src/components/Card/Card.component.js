@@ -2,13 +2,13 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { Container, CardSide, Content, CardForm } from "./Card.styles";
 
-function Card({ title, description, route }) {
+function Card({ title, description, route, backgroundImg }) {
   return (
     <Link to={route}>
       <Container>
-        <CardSide front>
+        <CardSide front backgroundImg={backgroundImg}>
           <Content>
-            <h1 style={{ marginTop: "75%" }}>{title}</h1>
+            <h1>{title}</h1>
           </Content>
         </CardSide>
         <CardSide>

@@ -27,9 +27,16 @@ export const CardSide = styled.div`
   ${(props) => {
     if (props.front === true) {
       return css`
-        z-index: 2;
-        background-size: cover;
-        background-image: url(https://userscontent2.emaze.com/images/f9538183-0ff9-478f-b964-c8ab90421e3b/3d28e192fda5c17250f96a2779c84475.jpg);
+        background-size: 100% 70%;
+        background-repeat: none;
+        background-color: black;
+        background-image: url(${props.backgroundImg});
+        background-repeat: no-repeat;
+        background-position: top;
+
+        h1 {
+          margin-top: 80%;
+        }
       `;
     } else {
       return css`
@@ -52,7 +59,9 @@ export const Content = styled.div`
 
   h1 {
     position: relative;
+    text-shadow: 0px 0px 5px black;
   }
+
   h1:before {
     content: "";
     position: absolute;
