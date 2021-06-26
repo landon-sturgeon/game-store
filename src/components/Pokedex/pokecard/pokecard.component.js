@@ -56,9 +56,9 @@ class Pokecard extends Component {
           }}
         >
           <h3 style={{ marginRight: "20px" }}>
-            Height: {this.state.height} ft.
+            Height: {this.state.height} cm
           </h3>
-          <h3>Weight: {this.state.weight} lbs.</h3>
+          <h3>Weight: {this.state.weight} kg</h3>
         </div>
       </StyledPokecard>
     );

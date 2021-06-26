@@ -1,6 +1,6 @@
 import styled, { css } from "styled-components";
 
-export const StyledPokedex = styled.div`
+export const StyledPokemonTeam = styled.div`
   background-color: #eceff1;
   color: #4d4d4d;
   text-align: center;

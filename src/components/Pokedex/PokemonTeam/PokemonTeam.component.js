@@ -1,17 +1,17 @@
 import React, { Component } from "react";
 import Pokecard from "../pokecard/pokecard.component";
 import {
-  StyledPokedex,
+  StyledPokemonTeam,
   PokedexCardList,
   StyledPokedexWinner,
   StyledPokedexExperience,
   PokecardTitle,
-} from "./Pokedex.styles";
+} from "./PokemonTeam.styles";
 
-class Pokedex extends Component {
+class PokemonTeam extends Component {
   render() {
     return (
-      <StyledPokedex>
+      <StyledPokemonTeam>
         <PokecardTitle>Team {this.props.teamNumber}</PokecardTitle>
         <StyledPokedexExperience>
           Team Experience: {this.props.exp}
@@ -24,9 +24,9 @@ class Pokedex extends Component {
             <Pokecard key={pokemon} pokemon={pokemon} />
           ))}
         </PokedexCardList>
-      </StyledPokedex>
+      </StyledPokemonTeam>
     );
   }
 }
 
-export default Pokedex;
+export default PokemonTeam;

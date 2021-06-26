@@ -1,7 +1,11 @@
 import axios from "axios";
 import React, { Component } from "react";
-import Pokedex from "../Pokedex/Pokedex.component";
-import { StyledPokemonGame } from "./PokemonGame.styles";
+import PokemonTeam from "../PokemonTeam/PokemonTeam.component";
+import {
+  StyledPokemonGame,
+  ReplayButton,
+  ReplayButtonContainer,
+} from "./PokemonGame.styles";
 
 const POKE_API = "https://pokeapi.co/api/v2/pokemon/";
 
@@ -18,8 +22,21 @@ class PokemonGame extends Component {
     };
     this.generateHands = this.generateHands.bind(this);
     this.getPokemonNameExp = this.getPokemonNameExp.bind(this);
+    this.resetGame = this.resetGame.bind(this);
   }
-  state = {};
+
+  resetGame() {
+    this.setState(
+      {
+        hand1: [],
+        hand2: [],
+        hand1Exp: 0,
+        hand2Exp: 0,
+        takenPokemon: [],
+      },
+      this.generateHands
+    );
+  }
 
   getRandomPokemonId() {
     const min = Math.ceil(this.state.pokemonRange[0]);
@@ -80,18 +97,21 @@ class PokemonGame extends Component {
   render() {
     return (
       <StyledPokemonGame>
-        <Pokedex
+        <PokemonTeam
           pokemon={this.state.hand1}
           exp={this.state.hand1Exp}
           isWinner={this.state.hand1Exp > this.state.hand2Exp}
           teamNumber={1}
         />
-        <Pokedex
+        <PokemonTeam
           pokemon={this.state.hand2}
           exp={this.state.hand2Exp}
           isWinner={this.state.hand2Exp > this.state.hand1Exp}
           teamNumber={2}
         />
+        <ReplayButtonContainer>
+          <ReplayButton onClick={this.resetGame}>Play Again!</ReplayButton>
+        </ReplayButtonContainer>
       </StyledPokemonGame>
     );
   }
