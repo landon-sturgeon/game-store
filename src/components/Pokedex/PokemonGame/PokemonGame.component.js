@@ -12,11 +12,12 @@ class PokemonGame extends Component {
       pokemonRange: [1, 151],
       hand1: [],
       hand2: [],
+      hand1Exp: 0,
+      hand2Exp: 0,
       takenPokemon: [],
-      temp: null,
     };
     this.generateHands = this.generateHands.bind(this);
-    this.getPokemonName = this.getPokemonName.bind(this);
+    this.getPokemonNameExp = this.getPokemonNameExp.bind(this);
   }
   state = {};
 
@@ -26,8 +27,15 @@ class PokemonGame extends Component {
     return Math.floor(Math.random() * (max - min + 1) + min);
   }
 
-  async getPokemonName(id) {
-    let temp = await axios.get(`${POKE_API}${id}`).then((res) => res.data.name);
+  async getPokemonNameExp(id) {
+    let temp = await axios.get(`${POKE_API}${id}`).then((res) => {
+      let name = res.data.name;
+      let exp = res.data.base_experience;
+      return {
+        name: name,
+        exp: exp,
+      };
+    });
     console.log("temp in get pokemon: " + temp);
     return temp;
   }
@@ -38,16 +46,18 @@ class PokemonGame extends Component {
       if (this.state.takenPokemon.indexOf(tempId) > -1) {
         continue;
       } else {
-        let tempName = await this.getPokemonName(tempId);
+        let tempData = await this.getPokemonNameExp(tempId);
         if (handNumber === 1) {
           this.setState({
-            hand1: [...this.state.hand1, tempName],
+            hand1: [...this.state.hand1, tempData.name],
             takenPokemon: [...this.state.takenPokemon, tempId],
+            hand1Exp: this.state.hand1Exp + tempData.exp,
           });
         } else {
           this.setState({
-            hand2: [...this.state.hand2, tempName],
+            hand2: [...this.state.hand2, tempData.name],
             takenPokemon: [...this.state.takenPokemon, tempId],
+            hand2Exp: this.state.hand2Exp + tempData.exp,
           });
         }
         break;
@@ -70,16 +80,20 @@ class PokemonGame extends Component {
   }
 
   render() {
-    // const hand1 = [];
-    // const hand2 = [...this.props.pokemon];
-
-    // while(hand1.length < hand2.length) {
-    //   let randIdx = Math.floor(Math.random() * hand2.length);
-    //   let randPokemon = hand2.splice(randIdx, 1)[0];
-    //   hand1.push(randPokemon);
-    // }
-
-    return <StyledPokemonGame>Pokemon Game</StyledPokemonGame>;
+    return (
+      <StyledPokemonGame>
+        <Pokedex
+          pokemon={this.state.hand1}
+          exp={this.state.hand1Exp}
+          isWinner={this.state.hand1Exp > this.state.hand2Exp}
+        />
+        <Pokedex
+          pokemon={this.state.hand2}
+          exp={this.state.hand2Exp}
+          isWinner={this.state.hand2Exp > this.state.hand1Exp}
+        />
+      </StyledPokemonGame>
+    );
   }
 }
 

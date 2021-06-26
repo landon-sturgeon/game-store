@@ -43,7 +43,7 @@ class Pokecard extends Component {
         <h1>{this.state.name}</h1>
         <img src={this.state.img} alt={this.props.name} />
         <h3>Type(s): {this.state.types.join(", ")}</h3>
-        <h3>{this.state.baseExperience}</h3>
+        <h3>Base Experience: {this.state.baseExperience}</h3>
         <div
           style={{
             display: "flex",

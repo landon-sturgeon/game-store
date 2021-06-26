@@ -3,23 +3,12 @@ import Pokecard from "../pokecard/pokecard.component";
 import { StyledPokedex, PokedexCardList } from "./Pokedex.styles";
 
 class Pokedex extends Component {
-  static defaultProps = {
-    pokemon: [
-      "charmander",
-      "squirtle",
-      "metapod",
-      "butterfree",
-      "pikachu",
-      "jigglypuff",
-      "gengar",
-      "eevee",
-    ],
-  };
-
   render() {
     return (
       <StyledPokedex>
         <h1>Pokedex!</h1>
+        <h2>Team Experience: {this.props.exp}</h2>
+        <h3>{this.props.isWinner ? "WINNER!" : "LOSER"}</h3>
         <PokedexCardList>
           {this.props.pokemon.map((pokemon) => (
             <Pokecard key={pokemon} pokemon={pokemon} />
