@@ -9,3 +9,21 @@ export const StyledPokecard = styled.div`
   background-color: white;
   border-radius: 3px;
 `;
+
+export const StyledPokemonImg = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 250px;
+  background-color: #eceff1;
+  border-radius: 3px;
+  margin-bottom: 1rem;
+
+  img {
+    transition: all ease 500ms;
+  }
+  img:hover {
+    transform: scale(1.1);
+    opacity: 0.7;
+  }
+`;

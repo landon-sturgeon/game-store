@@ -1,14 +1,24 @@
 import React, { Component } from "react";
 import Pokecard from "../pokecard/pokecard.component";
-import { StyledPokedex, PokedexCardList } from "./Pokedex.styles";
+import {
+  StyledPokedex,
+  PokedexCardList,
+  StyledPokedexWinner,
+  StyledPokedexExperience,
+  PokecardTitle,
+} from "./Pokedex.styles";
 
 class Pokedex extends Component {
   render() {
     return (
       <StyledPokedex>
-        <h1>Pokedex!</h1>
-        <h2>Team Experience: {this.props.exp}</h2>
-        <h3>{this.props.isWinner ? "WINNER!" : "LOSER"}</h3>
+        <PokecardTitle>Team {this.props.teamNumber}</PokecardTitle>
+        <StyledPokedexExperience>
+          Team Experience: {this.props.exp}
+        </StyledPokedexExperience>
+        <StyledPokedexWinner isWinner={this.props.isWinner}>
+          {this.props.isWinner ? "WINNER!" : "LOSER"}
+        </StyledPokedexWinner>
         <PokedexCardList>
           {this.props.pokemon.map((pokemon) => (
             <Pokecard key={pokemon} pokemon={pokemon} />

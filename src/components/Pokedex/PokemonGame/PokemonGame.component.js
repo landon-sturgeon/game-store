@@ -36,7 +36,6 @@ class PokemonGame extends Component {
         exp: exp,
       };
     });
-    console.log("temp in get pokemon: " + temp);
     return temp;
   }
 
@@ -72,7 +71,6 @@ class PokemonGame extends Component {
     while (this.state.hand1.length < this.state.hand2.length) {
       await this.updatePokeState(1);
     }
-    console.log(this.state);
   }
 
   componentDidMount() {
@@ -86,11 +84,13 @@ class PokemonGame extends Component {
           pokemon={this.state.hand1}
           exp={this.state.hand1Exp}
           isWinner={this.state.hand1Exp > this.state.hand2Exp}
+          teamNumber={1}
         />
         <Pokedex
           pokemon={this.state.hand2}
           exp={this.state.hand2Exp}
           isWinner={this.state.hand2Exp > this.state.hand1Exp}
+          teamNumber={2}
         />
       </StyledPokemonGame>
     );

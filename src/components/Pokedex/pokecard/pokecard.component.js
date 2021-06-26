@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { Component } from "react";
-import { StyledPokecard } from "./pokecard.styles";
+import { StyledPokecard, StyledPokemonImg } from "./pokecard.styles";
 
 const POKE_IMG_API =
   "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/";
@@ -41,7 +41,9 @@ class Pokecard extends Component {
     return (
       <StyledPokecard>
         <h1>{this.state.name}</h1>
-        <img src={this.state.img} alt={this.props.name} />
+        <StyledPokemonImg>
+          <img src={this.state.img} alt={this.props.name} />
+        </StyledPokemonImg>
         <h3>Type(s): {this.state.types.join(", ")}</h3>
         <h3>Base Experience: {this.state.baseExperience}</h3>
         <div
