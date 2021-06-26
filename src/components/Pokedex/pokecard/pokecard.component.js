@@ -2,6 +2,12 @@ import axios from "axios";
 import React, { Component } from "react";
 import { StyledPokecard } from "./pokecard.styles";
 
+const POKE_IMG_API =
+  "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/";
+
+const padToThree = (number) =>
+  number <= 999 ? `00${number}`.slice(-3) : number;
+
 class Pokecard extends Component {
   state = {
     baseExperience: 0,
@@ -19,12 +25,14 @@ class Pokecard extends Component {
         this.setState({
           baseExperience: res.data.base_experience,
           types: res.data.types.map((type) => {
-            return type.type.name;
+            return (
+              type.type.name.charAt(0).toUpperCase() + type.type.name.slice(1)
+            );
           }),
           name: res.data.name.charAt(0).toUpperCase() + res.data.name.slice(1),
           weight: res.data.weight,
           height: res.data.height,
-          sprite: res.data.sprites.front_default,
+          img: `${POKE_IMG_API}${padToThree(res.data.id)}.png`,
         });
       });
   }
@@ -33,7 +41,7 @@ class Pokecard extends Component {
     return (
       <StyledPokecard>
         <h1>{this.state.name}</h1>
-        <img src={this.state.sprite} alt={this.props.name} />
+        <img src={this.state.img} alt={this.props.name} />
         <h3>Type(s): {this.state.types.join(", ")}</h3>
         <h3>{this.state.baseExperience}</h3>
         <div

@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Pokecard from "../../components/Pokedex/pokecard/pokecard.component";
+import Pokecard from "../pokecard/pokecard.component";
 import { StyledPokedex, PokedexCardList } from "./Pokedex.styles";
 
 class Pokedex extends Component {
