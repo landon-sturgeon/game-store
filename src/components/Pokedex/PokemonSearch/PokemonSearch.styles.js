@@ -114,6 +114,7 @@ export const BigLightBorderContainer = styled.div`
   justify-content: center;
   align-items: center;
   margin-left: 5px;
+  margin-top: 5px;
   height: 60px;
   width: 60px;
   border: solid black;

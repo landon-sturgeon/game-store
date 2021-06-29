@@ -10,6 +10,7 @@ class PokemonSearch extends Component {
           flexDirection: "column",
           alignContent: "center",
           alignItems: "center",
+          marginTop: "20px",
         }}
       >
         <PokedexStyles.Logo>
