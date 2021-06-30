@@ -1,7 +1,39 @@
 import React, { Component } from "react";
+import axios from "axios";
 import * as PokedexStyles from "./PokemonSearch.styles";
 
 class PokemonSearch extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      imgSrc: "https://assets.pokemon.com/assets/cms2/img/pokedex/full/001.png",
+      height: 70,
+      weight: 6.9,
+      type: "grass",
+      id: 1,
+      name: "bulbasaur",
+    };
+    this.findPokemon = this.findPokemon.bind(this);
+  }
+
+  async findPokemon(el) {
+    if (el.key === "Enter") {
+      await axios
+        .get(`https://pokeapi.co/api/v2/pokemon/${el.target.value}`)
+        .then((res) => {
+          let id = ("00" + res.data.id).slice(-3);
+          this.setState({
+            imgSrc: `https://assets.pokemon.com/assets/cms2/img/pokedex/full/${id}.png`,
+            height: res.data.height * 10,
+            weight: res.data.weight / 10,
+            type: res.data.types[0].type.name,
+            id: res.data.id,
+            name: res.data.name,
+          });
+        });
+    }
+  }
+
   render() {
     return (
       <div
@@ -26,6 +58,7 @@ class PokemonSearch extends Component {
             id="name-input"
             type="text"
             placeholder="Name / id"
+            onKeyDown={this.findPokemon}
           />
           <PokedexStyles.BallContainer id="search-btn">
             <PokedexStyles.UpperHalfBallContainer />
@@ -68,7 +101,7 @@ class PokemonSearch extends Component {
                   <PokedexStyles.MiniLight color={"red"} />
                   <PokedexStyles.MiniLight color={"red"} />
                 </PokedexStyles.TopScreenLights>
-                <PokedexStyles.MainScreen id="main-screen" />
+                <PokedexStyles.MainScreen imgSrc={this.state.imgSrc} />
                 <PokedexStyles.BottomScreenLights>
                   <PokedexStyles.SmallLight color={"red"}>
                     <PokedexStyles.Dot color={"light-red"} />
@@ -97,7 +130,7 @@ class PokemonSearch extends Component {
                 </PokedexStyles.DotsContainer>
                 <PokedexStyles.GreenScreen>
                   <PokedexStyles.NameScreen id="name-screen">
-                    bulbasaur
+                    {this.state.name}
                   </PokedexStyles.NameScreen>
                 </PokedexStyles.GreenScreen>
                 <PokedexStyles.RightNavContainer>
@@ -139,7 +172,7 @@ class PokemonSearch extends Component {
             </div>
             <PokedexStyles.TopScreenContainer>
               <PokedexStyles.RightPanelScreen id="about-screen">
-                Height: 70cm Weight: 6.9kg
+                {`Height: ${this.state.height}cm Weight: ${this.state.weight}kg`}
               </PokedexStyles.RightPanelScreen>
             </PokedexStyles.TopScreenContainer>
             <PokedexStyles.SquareButtonsContainer>
@@ -183,10 +216,10 @@ class PokemonSearch extends Component {
             </PokedexStyles.CenterButtonsContainer>
             <PokedexStyles.BottomScreensContainer>
               <PokedexStyles.RightPanelScreen id="type-screen">
-                grass
+                {this.state.type}
               </PokedexStyles.RightPanelScreen>
               <PokedexStyles.RightPanelScreen id="id-screen">
-                #1
+                {`#${this.state.id}`}
               </PokedexStyles.RightPanelScreen>
             </PokedexStyles.BottomScreensContainer>
           </PokedexStyles.RightPanel>

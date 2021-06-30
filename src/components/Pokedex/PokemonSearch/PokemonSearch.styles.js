@@ -272,7 +272,7 @@ export const MainScreen = styled.div`
   background-color: #98cb98;
   border: solid black 2px;
   border-radius: 5%;
-  background-image: url(https://assets.pokemon.com/assets/cms2/img/pokedex/full/001.png);
+  background-image: url(${(props) => props.imgSrc});
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
