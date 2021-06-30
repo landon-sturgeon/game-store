@@ -12,25 +12,33 @@ class PokemonSearch extends Component {
       type: "grass",
       id: 1,
       name: "bulbasaur",
+      input: "",
     };
-    this.findPokemon = this.findPokemon.bind(this);
+    this.findPokemonOnEnter = this.findPokemonOnEnter.bind(this);
+    this.findPokemonOnClick = this.findPokemonOnClick.bind(this);
   }
 
-  async findPokemon(el) {
-    if (el.key === "Enter") {
-      await axios
-        .get(`https://pokeapi.co/api/v2/pokemon/${el.target.value}`)
-        .then((res) => {
-          let id = ("00" + res.data.id).slice(-3);
-          this.setState({
-            imgSrc: `https://assets.pokemon.com/assets/cms2/img/pokedex/full/${id}.png`,
-            height: res.data.height * 10,
-            weight: res.data.weight / 10,
-            type: res.data.types[0].type.name,
-            id: res.data.id,
-            name: res.data.name,
-          });
-        });
+  async getPokemon(val) {
+    await axios.get(`https://pokeapi.co/api/v2/pokemon/${val}`).then((res) => {
+      let id = ("00" + res.data.id).slice(-3);
+      this.setState({
+        imgSrc: `https://assets.pokemon.com/assets/cms2/img/pokedex/full/${id}.png`,
+        height: res.data.height * 10,
+        weight: res.data.weight / 10,
+        type: res.data.types[0].type.name,
+        id: res.data.id,
+        name: res.data.name,
+      });
+    });
+  }
+
+  async findPokemonOnClick(el) {
+    await this.getPokemon(this.state.input);
+  }
+
+  async findPokemonOnEnter(el) {
+    if (el.key === "Enter" || el.type === "click") {
+      await this.getPokemon(el.target.value);
     }
   }
 
@@ -58,9 +66,13 @@ class PokemonSearch extends Component {
             id="name-input"
             type="text"
             placeholder="Name / id"
-            onKeyDown={this.findPokemon}
+            onKeyDown={this.findPokemonOnEnter}
+            onInput={(e) => this.setState({ input: e.target.value })}
           />
-          <PokedexStyles.BallContainer id="search-btn">
+          <PokedexStyles.BallContainer
+            id="search-btn"
+            onClick={this.findPokemonOnClick}
+          >
             <PokedexStyles.UpperHalfBallContainer />
             <PokedexStyles.BottomHalfBallContainer />
             <PokedexStyles.CenterBallContainer />
