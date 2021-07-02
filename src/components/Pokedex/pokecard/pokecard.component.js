@@ -30,8 +30,8 @@ class Pokecard extends Component {
             );
           }),
           name: res.data.name.charAt(0).toUpperCase() + res.data.name.slice(1),
-          weight: res.data.weight,
-          height: res.data.height,
+          weight: res.data.weight / 10,
+          height: res.data.height * 10,
           img: `${POKE_IMG_API}${padToThree(res.data.id)}.png`,
         });
       });

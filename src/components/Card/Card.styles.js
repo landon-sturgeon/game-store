@@ -33,6 +33,7 @@ export const CardSide = styled.div`
         background-image: url(${props.backgroundImg});
         background-repeat: no-repeat;
         background-position: top;
+        overflow: hidden;
 
         h1 {
           margin-top: 80%;
@@ -46,7 +47,9 @@ export const CardSide = styled.div`
         padding-top: 10px;
         background-image: url(https://userscontent2.emaze.com/images/f9538183-0ff9-478f-b964-c8ab90421e3b/3d28e192fda5c17250f96a2779c84475.jpg);
         h1 {
-          margin: 0;
+          margin-left: 0;
+          margin-right: 0;
+          margin-top: 20px;
         }
       `;
     }

@@ -1,19 +1,25 @@
 import React from "react";
-import { StyledPokedexLanding } from "./PokedexLanding.styles";
-import { Link } from "react-router-dom";
+import CardList from "../../components/CardList/CardList.component";
+import pokedexScreenshot from "../../assets/pokemon/pokedex_screenshot.png";
+import pokedexGameScreenshot from "../../assets/pokemon/pokegame_screenshot.png";
+
+const cards = [
+  {
+    title: "Pokedex",
+    description: "Search for your favorite Pokemon!",
+    route: "/pokedex/search",
+    backgroundImg: pokedexScreenshot,
+  },
+  {
+    title: "Pokemon Battle!",
+    description: "Randomly generate a team of 4 and see who wins!",
+    route: "/pokedex/game",
+    backgroundImg: pokedexGameScreenshot,
+  },
+];
 
 function PokedexLandingComponent() {
-  return (
-    <StyledPokedexLanding>
-      <h1>Pokedex Landing!</h1>
-      <Link to="/pokedex/search">
-        <button>PokeSearch</button>
-      </Link>
-      <Link to="/pokedex/game">
-        <button>PokeGame</button>
-      </Link>
-    </StyledPokedexLanding>
-  );
+  return <CardList cards={cards} />;
 }
 
 export default PokedexLandingComponent;

@@ -13,7 +13,7 @@ function Card({ title, description, route, backgroundImg }) {
         </CardSide>
         <CardSide>
           <Content>
-            <h1>Contact Me</h1>
+            <h1>Description</h1>
             <CardForm>
               <p>{description}</p>
             </CardForm>
