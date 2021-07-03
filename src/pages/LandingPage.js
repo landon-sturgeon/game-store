@@ -18,9 +18,10 @@ const cards = [
     backgroundImg: pokedexScreenshot,
   },
   {
-    title: "Test Card 3",
-    description: "this is a description of card 3",
-    route: "/hangman",
+    title: "Yahtzee",
+    description:
+      "Classic game of rolling dice to get specific patterns of dice and win the most points!",
+    route: "/yahtzee",
     backgroundImg: { hangmanBackground },
   },
   {

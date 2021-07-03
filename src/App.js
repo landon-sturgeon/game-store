@@ -8,6 +8,7 @@ import LandingPage from "./pages/LandingPage";
 import PokedexLandingComponent from "./pages/Pokedex/PokedexLanding.component";
 import PokemonSearch from "./components/Pokedex/PokemonSearch/PokemonSearch.component";
 import PokemonGame from "./components/Pokedex/PokemonGame/PokemonGame.component";
+import YahtzeeGame from "./pages/Yahtzee/Yahtzee.component";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
             <Route path="/pokedex" element={<PokedexLandingComponent />} />
             <Route path="/pokedex/game" element={<PokemonGame />} />
             <Route path="/pokedex/search" element={<PokemonSearch />} />
+            <Route path="/yahtzee" element={<YahtzeeGame />} />
             <Route exact path="/" element={<LandingPage />} />
           </Routes>
         </Layout>
