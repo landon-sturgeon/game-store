@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 export const StyledDie = styled.div`
   font-size: 25px;
@@ -8,7 +8,7 @@ export const StyledDie = styled.div`
   font-weight: bold;
   background-color: black;
   color: white;
-  margin-right: 1em;
+  margin: 0.7em;
 
   ${(props) => {
     if (props.locked) {

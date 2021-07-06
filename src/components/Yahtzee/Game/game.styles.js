@@ -7,7 +7,6 @@ export const YahtzeeAppTitle = styled.h1`
   font-weight: 100;
   display: inline-block;
   font-size: 5rem;
-  width: 50%;
 `;
 
 const Gradient = keyframes`
@@ -18,7 +17,7 @@ const Gradient = keyframes`
 
 export const GameHeader = styled.header`
   width: 100%;
-  background: linear-gradient(-45deg, #67ab7, #9c27b0);
+  background: linear-gradient(-45deg, #673ab7, #9c27b0);
   background-size: 400% 400%;
   -webkit-animation: ${Gradient} 15s ease infinite;
   -moz-animation: ${Gradient} 15s ease infinite;
@@ -34,13 +33,24 @@ export const StyledYahtzeeGame = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  align-content: center;
+  min-width: 500px;
+
+  h2 {
+    font-weight: 100;
+    font-size: 2em;
+    border-bottom: 2px solid purple;
+    display: inline-block;
+    margin: 10px;
+  }
 `;
 
 export const GameDiceSection = styled.div`
-  width: 80%;
-  margin-left; auto;
-  margin-right: auto;
   margin-top: 0;
+  display: flex;
+  flex-direction: column;
+  margin-left: auto;
+  margin-right: auto;
 `;
 
 export const GameButtonWrapper = styled.div`
@@ -61,6 +71,7 @@ export const GameRerollButton = styled.button`
   border: none;
   width: 50%;
   margin-bottom: 2rem;
+  margin-top: 0.5rem;
 
   &:hover {
     cursor: pointer;

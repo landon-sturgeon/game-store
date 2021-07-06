@@ -1,13 +1,15 @@
 import React, { Component } from "react";
 import Game from "../../components/Yahtzee/Game/game.component";
-import { YahtzeeApp } from "./Yahtzee.styles";
+import { YahtzeeApp, YahtzeeAppContainer } from "./Yahtzee.styles";
 
 class YahtzeeGame extends Component {
   render() {
     return (
-      <YahtzeeApp>
-        <Game />
-      </YahtzeeApp>
+      <YahtzeeAppContainer>
+        <YahtzeeApp>
+          <Game />
+        </YahtzeeApp>
+      </YahtzeeAppContainer>
     );
   }
 }

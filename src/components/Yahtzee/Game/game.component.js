@@ -8,6 +8,7 @@ import {
   GameRerollButton,
 } from "./game.styles";
 import Dice from "../Dice/dice.component";
+import ScoreTable from "../ScoreTable/scoretable.component";
 
 const NUM_DICE = 5;
 const NUM_ROLLS = 3;
@@ -92,6 +93,7 @@ class Game extends Component {
             </GameButtonWrapper>
           </GameDiceSection>
         </GameHeader>
+        <ScoreTable doScore={this.doScore} scores={this.state.scores} />
       </StyledYahtzeeGame>
     );
   }
