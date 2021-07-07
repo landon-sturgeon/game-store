@@ -28,7 +28,7 @@ export const StyledRuleRow = styled.tr`
       `;
     } else {
       return css`
-        background: linear-greadient(
+        background: linear-gradient(
           to right,
           rgba(209, 196, 233, 1) 0%,
           rgba(209, 196, 233, 1) 0%,
