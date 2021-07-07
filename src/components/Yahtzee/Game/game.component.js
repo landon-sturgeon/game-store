@@ -54,13 +54,15 @@ class Game extends Component {
 
   toggleLocked(index) {
     // toggle whether index is in locked or not
-    this.setState((st) => ({
-      locked: [
-        ...st.locked.slice(0, index),
-        !st.locked[index],
-        ...st.locked.slice(index + 1),
-      ],
-    }));
+    if (this.state.rollsLeft > 0) {
+      this.setState((st) => ({
+        locked: [
+          ...st.locked.slice(0, index),
+          !st.locked[index],
+          ...st.locked.slice(index + 1),
+        ],
+      }));
+    }
   }
 
   doScore(rulename, ruleFn) {
@@ -86,10 +88,13 @@ class Game extends Component {
             />
             <GameButtonWrapper>
               <GameRerollButton
-                disabled={this.state.locked.every((x) => x)}
+                disabled={
+                  this.state.locked.every((x) => x) ||
+                  this.state.rollsLeft === 0
+                }
                 onClick={this.roll}
               >
-                {this.state.rollsLeft} Rerolls left
+                {this.state.rollsLeft} Rerolls Left
               </GameRerollButton>
             </GameButtonWrapper>
           </GameDiceSection>
