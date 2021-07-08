@@ -3,7 +3,7 @@ import { StyledRuleRow, RuleRowName, RuleRowScore } from "./ruleRow.styles";
 
 class RuleRow extends Component {
   render() {
-    const { score, name, doScore } = this.props;
+    const { score, name, doScore, description } = this.props;
     const disabled = score != undefined;
     return (
       <StyledRuleRow
@@ -11,7 +11,7 @@ class RuleRow extends Component {
         onClick={disabled ? null : doScore}
       >
         <RuleRowName>{name}</RuleRowName>
-        <RuleRowScore>{score}</RuleRowScore>
+        <RuleRowScore>{disabled ? score : description}</RuleRowScore>
       </StyledRuleRow>
     );
   }
