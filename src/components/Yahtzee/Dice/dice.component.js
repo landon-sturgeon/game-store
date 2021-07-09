@@ -13,6 +13,7 @@ class Dice extends Component {
             locked={this.props.locked[index]}
             index={index}
             key={index}
+            rolling={this.props.rolling}
           />
         ))}
       </StyledDice>

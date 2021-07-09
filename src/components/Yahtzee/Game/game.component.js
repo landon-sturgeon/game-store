@@ -17,9 +17,10 @@ class Game extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      dice: Array.from({ length: NUM_DICE }),
+      dice: Array.from({ length: NUM_DICE }).map((d) => 5),
       locked: Array(NUM_DICE).fill(false),
       rollsLeft: NUM_ROLLS,
+      rolling: false,
       scores: {
         ones: undefined,
         twos: undefined,
@@ -39,6 +40,22 @@ class Game extends Component {
     this.roll = this.roll.bind(this);
     this.doScore = this.doScore.bind(this);
     this.toggleLocked = this.toggleLocked.bind(this);
+    this.animateRoll = this.animateRoll.bind(this);
+  }
+
+  componentDidMount() {
+    this.animateRoll();
+  }
+
+  animateRoll() {
+    this.setState(
+      {
+        rolling: true,
+      },
+      () => {
+        setTimeout(this.roll, 1000);
+      }
+    );
   }
 
   roll(e) {
@@ -49,12 +66,13 @@ class Game extends Component {
       ),
       locked: st.rollsLeft > 1 ? st.locked : Array(NUM_DICE).fill(true),
       rollsLeft: st.rollsLeft - 1,
+      rolling: false,
     }));
   }
 
   toggleLocked(index) {
     // toggle whether index is in locked or not
-    if (this.state.rollsLeft > 0) {
+    if (this.state.rollsLeft > 0 && !this.state.rolling) {
       this.setState((st) => ({
         locked: [
           ...st.locked.slice(0, index),
@@ -85,6 +103,8 @@ class Game extends Component {
               dice={this.state.dice}
               locked={this.state.locked}
               handleClick={this.toggleLocked}
+              disabled={this.state.rollsLeft === 0}
+              rolling={this.state.rolling}
             />
             <GameButtonWrapper>
               <GameRerollButton
@@ -92,7 +112,7 @@ class Game extends Component {
                   this.state.locked.every((x) => x) ||
                   this.state.rollsLeft === 0
                 }
-                onClick={this.roll}
+                onClick={this.animateRoll}
               >
                 {this.state.rollsLeft} Rerolls Left
               </GameRerollButton>
