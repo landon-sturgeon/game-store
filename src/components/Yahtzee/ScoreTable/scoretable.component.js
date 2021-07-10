@@ -22,6 +22,15 @@ import {
 } from "../rules.utils";
 
 class ScoreTable extends Component {
+  getTotalScore() {
+    const { scores } = this.props;
+    let totalScore = 0;
+    for (let key in scores) {
+      if (scores[key]) totalScore += scores[key];
+    }
+    return totalScore;
+  }
+
   render() {
     const { scores, doScore } = this.props;
 
@@ -123,6 +132,7 @@ class ScoreTable extends Component {
             </tbody>
           </table>
         </ScoreTableSectionLower>
+        <h2>TOTAL SCORE: {this.getTotalScore()}</h2>
       </StyledScoreTable>
     );
   }

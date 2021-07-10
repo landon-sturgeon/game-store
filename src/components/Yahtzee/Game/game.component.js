@@ -90,7 +90,17 @@ class Game extends Component {
       rollsLeft: NUM_ROLLS,
       locked: Array(NUM_DICE).fill(false),
     }));
-    this.roll();
+    this.animateRoll();
+  }
+
+  displayRollInfo(rollNumber) {
+    const messages = [
+      "0 Rolls Left",
+      "1 Roll Left",
+      "2 Rolls Left",
+      "Starting Round",
+    ];
+    return messages[rollNumber];
   }
 
   render() {
@@ -114,7 +124,7 @@ class Game extends Component {
                 }
                 onClick={this.animateRoll}
               >
-                {this.state.rollsLeft} Rerolls Left
+                {this.displayRollInfo(this.state.rollsLeft)}
               </GameRerollButton>
             </GameButtonWrapper>
           </GameDiceSection>
