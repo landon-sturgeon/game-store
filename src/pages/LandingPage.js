@@ -2,6 +2,7 @@ import React from "react";
 import CardList from "../components/CardList/CardList.component";
 import hangmanBackground from "../assets/hangman/hangman_screenshot.png";
 import pokedexScreenshot from "../assets/pokemon/pokedex_screenshot.png";
+import yahtzeeScreenshot from "../assets/yahtzee/yahtzee_screenshot.png";
 
 const cards = [
   {
@@ -22,7 +23,7 @@ const cards = [
     description:
       "Classic game of rolling dice to get specific patterns of dice and win the most points!",
     route: "/yahtzee",
-    backgroundImg: { hangmanBackground },
+    backgroundImg: yahtzeeScreenshot,
   },
   {
     title: "Test Card 4",
