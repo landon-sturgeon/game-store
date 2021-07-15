@@ -1,8 +1,9 @@
 import React, { Component } from "react";
+import JokeList from "../../components/DadJoke/DadJokeList/dadJokeList.component";
 
 class DadJokeViewer extends Component {
   render() {
-    return <div style={{ color: "white" }}>Dad Jokes!</div>;
+    return <JokeList />;
   }
 }
 
