@@ -14,7 +14,7 @@ const cards = [
   },
   {
     title: "Pokemon Games",
-    description: "Pokemon activities for the young and young at heart!",
+    description: "Pokemon activities for the young and young of heart!",
     route: "/pokedex",
     backgroundImg: pokedexScreenshot,
   },
@@ -26,9 +26,9 @@ const cards = [
     backgroundImg: yahtzeeScreenshot,
   },
   {
-    title: "Test Card 4",
-    description: "this is a description of card 4",
-    route: "/hangman",
+    title: "Dad Joke Generator",
+    description: "Query, view, and upvote on your favorite cheesy jokes!",
+    route: "/dadjokes",
     backgroundImg: { hangmanBackground },
   },
   {
