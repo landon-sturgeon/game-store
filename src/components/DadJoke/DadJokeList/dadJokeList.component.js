@@ -3,6 +3,9 @@ import axios from "axios";
 import {
   JokeListContainer,
   JokeListJokesContainer,
+  JokeListSidebar,
+  JokeListTitle,
+  JokeListGetMoreButton,
 } from "./dadJokeList.styles";
 
 class JokeList extends Component {
@@ -32,7 +35,13 @@ class JokeList extends Component {
   render() {
     return (
       <JokeListContainer>
-        <h1>Dad Jokes</h1>
+        <JokeListSidebar>
+          <JokeListTitle>
+            <span>Dad</span> Jokes
+          </JokeListTitle>
+          <img src="https://assets.dryicons.com/uploads/icon/svg/8927/0eb14c71-38f2-433a-bfc8-23d9c99b3647.svg" />
+          <JokeListGetMoreButton>New Jokes</JokeListGetMoreButton>
+        </JokeListSidebar>
         <JokeListJokesContainer>
           {this.state.jokes.map((j) => (
             <div>{j}</div>
