@@ -4,6 +4,7 @@ export const JokeListContainer = styled.div`
   display: flex;
   width: 80%;
   height: 80%;
+  min-width: 800px;
 `;
 
 export const JokeListJokesContainer = styled.div`
@@ -11,6 +12,7 @@ export const JokeListJokesContainer = styled.div`
   background: white;
   align-self: center;
   width: 70%;
+  overflow-y: scroll;
   box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.1);
 `;
 
