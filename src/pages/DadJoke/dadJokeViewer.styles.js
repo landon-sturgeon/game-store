@@ -5,6 +5,8 @@ export const StyledDadJokeViewer = styled.div`
   align-items: center;
   justify-content: center;
   height: 100vh;
+  height: calc(100vh - var(--pixel-navbar-height));
+  width: 100vw;
   font-family: "Rubik", sans-serif;
   color: #78909c;
   background: linear-gradient(
