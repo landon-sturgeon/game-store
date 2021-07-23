@@ -17,13 +17,14 @@ class JokeList extends Component {
 
   constructor(props) {
     super(props);
-    this.state = { jokes: [] };
+    this.state = {
+      jokes: JSON.parse(window.localStorage.getItem("jokes") || "[]"),
+    };
     this.handleVote = this.handleVote.bind(this);
   }
 
-  async componentDidMount() {
+  async getJokes() {
     let jokes = [];
-
     while (jokes.length < this.props.numJokesToGet) {
       let res = await axios.get("https://icanhazdadjoke.com/", {
         headers: { Accept: "application/json" },
@@ -33,6 +34,11 @@ class JokeList extends Component {
     this.setState({
       jokes: jokes,
     });
+    window.localStorage.setItem("jokes", JSON.stringify(jokes));
+  }
+
+  async componentDidMount() {
+    if (this.state.jokes.length === 0) this.getJokes();
   }
 
   handleVote(id, delta) {
@@ -50,7 +56,10 @@ class JokeList extends Component {
           <JokeListTitle>
             <span>Dad</span> Jokes
           </JokeListTitle>
-          <img src="https://assets.dryicons.com/uploads/icon/svg/8927/0eb14c71-38f2-433a-bfc8-23d9c99b3647.svg" />
+          <img
+            src="https://assets.dryicons.com/uploads/icon/svg/8927/0eb14c71-38f2-433a-bfc8-23d9c99b3647.svg"
+            alt={"smiley-face-icon"}
+          />
           <JokeListGetMoreButton>New Jokes</JokeListGetMoreButton>
         </JokeListSidebar>
         <JokeListJokesContainer>
